@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -aln
+ls -l,-n,-a
+
