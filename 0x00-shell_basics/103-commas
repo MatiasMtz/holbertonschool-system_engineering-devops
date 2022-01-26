@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -mpaldv /map
+ls -map
