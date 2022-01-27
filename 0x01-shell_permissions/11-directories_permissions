@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod d +111
+chmod *d +111
