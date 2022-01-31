@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -l -d $(cut -d':' -f6 /etc/passwd) | sort -u
+ls -ld $(cut -d':' -f6 /etc/passwd) | sort -u
