@@ -1,0 +1,1 @@
+Expansions, shell arithmetic, Variables, Alias command.
