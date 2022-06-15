@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+pkill -f "7-highlander" --signal SIGKILL
