@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 # Prints Best School x9 but prints Hi at index 8
-i=0
+i=1
 
-while ((i<10))
+while [ $i -le 10 ]
 do
-    if ((i==8))
-    then
-	echo "Hi"
-    else
-	echo "Best School"
-    fi
-    ((i++))
+   echo "Best School"
+   if [ $i -eq 9 ]
+   then
+       echo "Hi"
+   fi
+   i=$((i+1))
 done
