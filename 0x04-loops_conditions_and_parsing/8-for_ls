@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Loops through a directory
+
+for f in *
+do
+    echo "$f" | cut -d "-" -f2
+done

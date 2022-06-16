@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# prints Best School x10 with the until loop
+i=0
+
+until [ $i -gt 9 ];
+do
+    echo "Best School"
+    i=$((i+1))
+done
