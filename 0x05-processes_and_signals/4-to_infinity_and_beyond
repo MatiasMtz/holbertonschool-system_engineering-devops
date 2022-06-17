@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Script that displays To infinity and beyond indefinitely.
 for (( ; ; ))
 do
 	echo "To infinity and beyond"

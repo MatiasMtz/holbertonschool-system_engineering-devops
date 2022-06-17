@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Script that displays a text and catch a sign
 trap "echo 'I am invincible!!!'" SIGTERM
 for (( ; ; ))
 do

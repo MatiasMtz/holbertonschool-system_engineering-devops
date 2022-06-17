@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+i=0
+while (( i <= 100 ))
+do
+	echo "I am alive!"
+	(( i+i ))
+	sleep 2
+done

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Script that creates a file, fill it with its PID, etc.
 sudo touch /var/run/myscript.pid
 sudo bash -c "echo $$ > /var/run/myscript.pid"
 for (( ; ; ))

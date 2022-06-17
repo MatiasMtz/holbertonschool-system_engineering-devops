@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+# Script that displays lines containing the bash word
 ps -aux | grep "bash"
 # shellcheck disable=SC2009
