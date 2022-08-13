@@ -1,7 +1,7 @@
 # My ssh config file
 
 Host server
-  HostName 54.147.174.185
+  HostName 54.145.39.140
   User ubuntu
   StrictHostKeyChecking no
   PasswordAuthentication no
