@@ -1,0 +1,9 @@
+# My ssh config file
+
+Host server
+  HostName 54.147.174.185
+  User ubuntu
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile ./school
+  IdentitiesOnly yes
