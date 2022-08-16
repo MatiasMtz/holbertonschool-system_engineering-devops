@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Script containing commands to automatically configure a Ubuntu machine to /redirect_me is redirecting to another page.
+
+apt-get update
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i '/server_name _;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+service nginx restart
