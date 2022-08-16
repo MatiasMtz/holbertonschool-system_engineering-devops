@@ -2,4 +2,11 @@
 # Install nginx on web-01 server
 apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
+printf %s "server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /etc/nginx/html;
+     index       index.html index.htm;
+}
+" > /etc/nginx/sites-available/default
 service nginx restart
