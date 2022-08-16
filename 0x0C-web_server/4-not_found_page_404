@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# task 3, redirections page 301
+sudo apt-get update -y
+sudo apt-get install nginx -y
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sed -i '/server_name _;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/error404.html
+sed -i '/server_name _;/a  error_page 404 /error404.html;' /etc/nginx/sites-available/default
+service nginx restart
