@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Restarts the server
+sudo service apache2 start
