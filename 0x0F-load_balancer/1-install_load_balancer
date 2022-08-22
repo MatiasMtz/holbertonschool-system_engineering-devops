@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Installing and configuring HAproxy 
+# frontend frontend_server
+#	bind *:80
+#	mode http
+#	default_backend backend_server
+# backend backend_server
+#	balance roundrobin
+#	server 4442-web-01 54.145.39.140:80 check
+#	server 4442-web-02 23.22.141.108:80 check
+apt-get -y update
+apt-get -y install haproxy
+sed -i "s/ENABLED=0/ENABLED=1/g" /etc/default/haproxy
+sed -i '$ a\ \nfrontend frontend_server\n\t bind *:80\n\tmode http\n\tdefault_backend backend_server\n\nbackend backend_server\n\tbalance roundrobin\n\tserver 4442-web-01 54.145.39.140:80 check\n\tserver 4442-web-02 23.22.141.108:80 check' /etc/haproxy/haproxy.cfg
