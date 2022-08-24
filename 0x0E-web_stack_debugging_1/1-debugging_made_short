@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Script to solve port listening
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
-service nginx restart
+pkill -1 nginx
