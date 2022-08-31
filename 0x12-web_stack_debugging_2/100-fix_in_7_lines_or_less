@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Bash script that configures the container to nginx as user
+chown nginx /etc/nginx/nginx.conf
+chmod 700 /etc/nginx/nginx.conf
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+sudo -u nginx service nginx start
