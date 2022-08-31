@@ -2,5 +2,5 @@
 # script that runs the whoami command under the user passed argument
 if [ $# -eq 1 ]
 then
-	sudo -u $1 'whoami'
+	sudo -u "$1" 'whoami'
 fi
