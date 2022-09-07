@@ -1,35 +1,22 @@
 #!/usr/bin/python3
-""" Program that Gather data from an API and Export to JSON """
+"""Exports data in the JSON format"""
 import json
 import requests
-from sys import argv
-from typing import List
-
+import sys
 
 if __name__ == "__main__":
-    """ Program Entry point """
-    employeeId = argv[1]
-    todoUrl = 'https://jsonplaceholder.typicode.com/todos'
-    userUrl = 'https://jsonplaceholder.typicode.com/users'
-    payload1 = {'userId': employeeId}
-    payload2 = {'id': employeeId}
+    id = sys.argv[1]
+    userUrl = "https://jsonplaceholder.typicode.com/users/{}".format(id)
+    todoUrl = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
 
-    todoRequest = requests.get(todoUrl, params=payload1)
-    userRequest = requests.get(userUrl, params=payload2)
+    userData = requests.get(userUrl).json()
+    todo = requests.get(todoUrl).json()
 
-    totalTasks = todoRequest.json()
-    userData = userRequest.json()
-    employeeName = userData[0].get('username')
-    dictList = []
-    userTasks = {}
-
-    with open('{}.json'.format(employeeId), 'w') as json_file:
-        for task in totalTasks:
-            taskData = {}
-            taskData['task'] = task.get('title')
-            taskData['completed'] = task.get('completed')
-            taskData['username'] = employeeName
-            dictList.append(taskData)
-        userTasks[employeeId] = dictList
-        info = json.dumps(userTasks)
-        json_file.write(info)
+    with open('{}.json'.format(id), 'w') as json_file:
+        tasks = []
+        for t in todo:
+            tasks.append({"task": t.get("title"),
+                          "completed": t.get("completed"),
+                          "username": userData.get("username")})
+        data = {"{}".format(id): tasks}
+        json.dump(data, json_file)
