@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ Program that Gather data from an API and Export to JSON """
 import json
-from typing import List
 import requests
 from sys import argv
+from typing import List
+
 
 if __name__ == "__main__":
     """ Program Entry point """
