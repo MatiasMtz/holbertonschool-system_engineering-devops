@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""How many subs?"""
+"""function that queries the Reddit API and returns the number of 
+subscribers or 0"""
 import requests
 
 
 def number_of_subscribers(subreddit):
+    """return subscribers or 0"""
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {'user-agent': 'MyAPI/0.0.1'}
     response = requests.get(url)

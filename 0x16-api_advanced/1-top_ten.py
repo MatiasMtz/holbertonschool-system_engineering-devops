@@ -5,6 +5,7 @@ import requests
 
 
 def top_ten(subreddit):
+    """prints top 10 hot posts"""
     url = "https://www.reddit.com/r/{}/.json?limit=10".format(subreddit)
     headers = {'user-agent': 'MyAPI/0.0.1'}
     response = requests.get(url, headers=headers, allow_redirects=False)
