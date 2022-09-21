@@ -6,24 +6,16 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=""):
     """Returns titles list of hot articles or not"""
-    if (after is None):
-        return hot_list
-    if (len(hot_list) == 0):
-        url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    else:
-        url = "https://www.reddit.com/r/{}/hot.json?after={}".format(
-            subreddit, after)
-    headers = {'user-agent': 'philsrequest'}
-
-    req = requests.get(url, headers=headers)
-    if (req.status_code is 404):
-        return None
-    elif 'data' not in req.json():
-        return None
-    else:
-        req = req.json()
-        for post in req['data']['children']:
-            hot_list.append(post['data']['title'])
-
-    after = req['data']['after']
-    return recurse(subreddit, hot_list, after)
+    request = requests.get("https://www.reddit.com/r/{}/hot.json".format(
+        subreddit),
+        headers={"User-Agent": "My User Agent"}, params={"after": after})
+    if request.status_code != 200:
+        return(None)
+    requestData = request.json()
+    st = requestData["data"]["after"]
+    child = requestData["data"]["children"]
+    for each in child:
+        hot_list.append(each["data"]["title"])
+    if st is not None:
+        recurse(subreddit, hot_list, st)
+    return(hot_list)
